@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sparkles, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -7,7 +8,38 @@ import yogaImg from "@/assets/event-yoga.jpg";
 import healingImg from "@/assets/event-healing.jpg";
 import ritualImg from "@/assets/event-ritual.jpg";
 
+const slides = [
+  {
+    image: meditationImg,
+    title: "Meditação Mindfulness",
+    description: "Encontre paz interior através de práticas guiadas no Jardim Botânico.",
+  },
+  {
+    image: yogaImg,
+    title: "Retiros de Yoga",
+    description: "Experiências imersivas em Petrópolis com natureza e autoconhecimento.",
+  },
+  {
+    image: healingImg,
+    title: "Terapias Holísticas",
+    description: "Reiki, constelação familiar e cura energética em Santa Teresa.",
+  },
+  {
+    image: ritualImg,
+    title: "Rituais Sagrados",
+    description: "Cerimônias do fogo e práticas ancestrais em Itacoatiara.",
+  },
+];
+
 const AppleLanding = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -225,24 +257,72 @@ const AppleLanding = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 bg-gradient-to-b from-foreground to-foreground/95">
-        <div className="container mx-auto px-6 text-center">
-          <Sparkles className="h-12 w-12 text-primary mx-auto mb-8" />
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold mb-6">
-            Comece sua jornada.
-          </h2>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto mb-12">
-            Mais de 100 eventos transformadores esperando por você no Rio de Janeiro.
-          </p>
-          <Link to="/home">
-            <Button 
-              size="lg"
-              className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-lg"
-            >
-              Explorar Todos os Eventos
-            </Button>
-          </Link>
+      {/* CTA Section with Slideshow */}
+      <section className="py-24 bg-gradient-to-b from-foreground to-foreground/95">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <Sparkles className="h-12 w-12 text-primary mx-auto mb-8" />
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold mb-6">
+              Comece sua jornada.
+            </h2>
+            <p className="text-xl text-white/70 max-w-2xl mx-auto">
+              Mais de 100 eventos transformadores esperando por você no Rio de Janeiro.
+            </p>
+          </div>
+
+          {/* Slideshow */}
+          <div className="max-w-4xl mx-auto mb-12">
+            <div className="relative overflow-hidden rounded-3xl aspect-[16/9]">
+              {slides.map((slide, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-700 ${
+                    index === currentSlide ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <img
+                    src={slide.image}
+                    alt={slide.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-8 text-left">
+                    <h3 className="text-2xl md:text-3xl font-serif font-semibold mb-2">
+                      {slide.title}
+                    </h3>
+                    <p className="text-white/80 text-lg">{slide.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Dot Indicators */}
+            <div className="flex justify-center gap-3 mt-6">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentSlide
+                      ? "bg-primary w-8"
+                      : "bg-white/30 hover:bg-white/50"
+                  }`}
+                  aria-label={`Ir para slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center">
+            <Link to="/home">
+              <Button 
+                size="lg"
+                className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-lg"
+              >
+                Explorar Todos os Eventos
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
