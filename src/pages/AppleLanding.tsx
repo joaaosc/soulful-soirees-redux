@@ -7,6 +7,10 @@ import meditationImg from "@/assets/event-meditation.jpg";
 import yogaImg from "@/assets/event-yoga.jpg";
 import healingImg from "@/assets/event-healing.jpg";
 import ritualImg from "@/assets/event-ritual.jpg";
+import cardBuddhaImg from "@/assets/card-buddha.jpg";
+import cardYogaBeachImg from "@/assets/card-yoga-beach.jpg";
+import cardRitualImg from "@/assets/card-ritual.jpg";
+import cardCrystalsImg from "@/assets/card-crystals.jpg";
 
 const slides = [
   {
@@ -28,6 +32,36 @@ const slides = [
     image: ritualImg,
     title: "Rituais Sagrados",
     description: "Cerimônias do fogo e práticas ancestrais em Itacoatiara.",
+  },
+];
+
+const featureCards = [
+  {
+    image: cardBuddhaImg,
+    title: "Meditação",
+    description: "Silêncio que transforma.",
+    bgColor: "bg-amber-900",
+  },
+  {
+    image: cardYogaBeachImg,
+    title: "Yoga na Praia",
+    description: "Corpo e mente em harmonia.",
+    bgColor: "bg-sky-100",
+    textDark: true,
+  },
+  {
+    image: cardRitualImg,
+    title: "Rituais",
+    description: "Conexão com o sagrado.",
+    bgColor: "bg-orange-100",
+    textDark: true,
+  },
+  {
+    image: cardCrystalsImg,
+    title: "Cristais",
+    description: "Energia e equilíbrio.",
+    bgColor: "bg-purple-50",
+    textDark: true,
   },
 ];
 
@@ -257,72 +291,110 @@ const AppleLanding = () => {
         </div>
       </section>
 
-      {/* CTA Section with Slideshow */}
-      <section className="py-24 bg-gradient-to-b from-foreground to-foreground/95">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <Sparkles className="h-12 w-12 text-primary mx-auto mb-8" />
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold mb-6">
-              Comece sua jornada.
-            </h2>
-            <p className="text-xl text-white/70 max-w-2xl mx-auto">
-              Mais de 100 eventos transformadores esperando por você no Rio de Janeiro.
-            </p>
-          </div>
-
-          {/* Slideshow */}
-          <div className="max-w-4xl mx-auto mb-12">
-            <div className="relative overflow-hidden rounded-3xl aspect-[16/9]">
-              {slides.map((slide, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-opacity duration-700 ${
-                    index === currentSlide ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <img
-                    src={slide.image}
-                    alt={slide.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-8 text-left">
-                    <h3 className="text-2xl md:text-3xl font-serif font-semibold mb-2">
-                      {slide.title}
-                    </h3>
-                    <p className="text-white/80 text-lg">{slide.description}</p>
-                  </div>
+      {/* Feature Cards Grid - Apple Style */}
+      <section className="bg-background">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-3">
+          {featureCards.map((card, index) => (
+            <div
+              key={index}
+              className={`relative aspect-square overflow-hidden ${card.bgColor} flex flex-col items-center justify-between py-12`}
+            >
+              <div className={`text-center z-10 ${card.textDark ? "text-foreground" : "text-white"}`}>
+                <h3 className="text-3xl md:text-4xl font-serif font-semibold mb-2">
+                  {card.title}
+                </h3>
+                <p className={`text-lg ${card.textDark ? "text-muted-foreground" : "text-white/80"}`}>
+                  {card.description}
+                </p>
+                <div className="flex gap-4 justify-center mt-6">
+                  <Link to="/home#eventos">
+                    <Button 
+                      size="sm" 
+                      className={`rounded-full px-6 ${
+                        card.textDark 
+                          ? "bg-foreground hover:bg-foreground/90 text-white" 
+                          : "bg-primary hover:bg-primary/90 text-primary-foreground"
+                      }`}
+                    >
+                      Saiba mais
+                    </Button>
+                  </Link>
                 </div>
-              ))}
-            </div>
-
-            {/* Dot Indicators */}
-            <div className="flex justify-center gap-3 mt-6">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? "bg-primary w-8"
-                      : "bg-white/30 hover:bg-white/50"
-                  }`}
-                  aria-label={`Ir para slide ${index + 1}`}
+              </div>
+              <div className="flex-1 flex items-end justify-center w-full">
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className="w-3/4 h-auto max-h-[60%] object-contain rounded-2xl shadow-2xl"
                 />
-              ))}
+              </div>
             </div>
-          </div>
+          ))}
+        </div>
+      </section>
 
-          <div className="text-center">
-            <Link to="/home">
-              <Button 
-                size="lg"
-                className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-lg"
-              >
-                Explorar Todos os Eventos
-              </Button>
-            </Link>
+      {/* Full-Width Slideshow Section */}
+      <section className="bg-foreground">
+        {/* Slideshow - Full Width */}
+        <div className="relative w-full aspect-[21/9] overflow-hidden">
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-700 ${
+                index === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 text-center">
+                <h3 className="text-3xl md:text-5xl font-serif font-semibold mb-3">
+                  {slide.title}
+                </h3>
+                <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
+                  {slide.description}
+                </p>
+              </div>
+            </div>
+          ))}
+
+          {/* Dot Indicators */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentSlide
+                    ? "bg-primary w-8"
+                    : "bg-white/30 hover:bg-white/50"
+                }`}
+                aria-label={`Ir para slide ${index + 1}`}
+              />
+            ))}
           </div>
+        </div>
+
+        {/* CTA Below Slideshow */}
+        <div className="text-center py-16">
+          <Sparkles className="h-10 w-10 text-primary mx-auto mb-6" />
+          <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-4">
+            Comece sua jornada.
+          </h2>
+          <p className="text-lg text-white/70 max-w-xl mx-auto mb-8">
+            Mais de 100 eventos transformadores esperando por você.
+          </p>
+          <Link to="/home">
+            <Button 
+              size="lg"
+              className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-lg"
+            >
+              Explorar Todos os Eventos
+            </Button>
+          </Link>
         </div>
       </section>
 
