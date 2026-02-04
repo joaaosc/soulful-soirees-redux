@@ -1,73 +1,95 @@
-# Welcome to your Lovable project
+# Soulful Soirées (Redux)
 
-## Project info
+App web (Vite + React + TypeScript + Tailwind + shadcn/ui) para descobrir eventos e experiências de bem-estar no RJ.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Requisitos
 
-## How can I edit this code?
+- Node.js 20+ (recomendado)
+- npm 9+ (ou pnpm/yarn, mas o projeto usa npm por padrão)
 
-There are several ways of editing your application.
+> Dica (macOS): `brew install node`
 
-**Use Lovable**
+## Rodando localmente
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Clone o repositório e instale dependências:
 
-Changes made via Lovable will be committed automatically to this repo.
+```bash
+git clone https://github.com/joaaosc/soulful-soirees-redux.git
+cd soulful-soirees-redux
+npm ci
+```
 
-**Use your preferred IDE**
+Inicie o servidor de desenvolvimento:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Abra o endereço exibido no terminal (geralmente `http://localhost:5173`).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Scripts úteis
 
-**Use GitHub Codespaces**
+- Lint:
+  ```bash
+  npm run lint
+  ```
+- Typecheck:
+  ```bash
+  npm run typecheck
+  ```
+- Testes:
+  ```bash
+  npm run test
+  ```
+- Build de produção:
+  ```bash
+  npm run build
+  ```
+- Pré-visualizar build:
+  ```bash
+  npm run preview
+  ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Deploy na Vercel
 
-## What technologies are used for this project?
+### Opção A — Via Dashboard (recomendado)
 
-This project is built with:
+1. Crie uma conta na Vercel e conecte seu GitHub.
+2. Clique em **Add New → Project** e importe o repositório `joaaosc/soulful-soirees-redux`.
+3. Em **Configure Project**:
+   - **Framework Preset**: Vite
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Install Command**: `npm ci` (opcional, mas recomendado)
+4. Clique em **Deploy**.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+> Importante (SPA/React Router): para rotas como `/home` funcionarem ao dar refresh, adicione um `vercel.json` na raiz com rewrite para `index.html`:
+>
+> ```json
+> {
+>   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+> }
+> ```
 
-## How can I deploy this project?
+### Opção B — Via Vercel CLI
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+1. Instale o CLI:
+   ```bash
+   npm i -g vercel
+   ```
+2. Faça login:
+   ```bash
+   vercel login
+   ```
+3. Deploy de preview:
+   ```bash
+   vercel
+   ```
+4. Deploy em produção:
+   ```bash
+   vercel --prod
+   ```
 
-## Can I connect a custom domain to my Lovable project?
+## SPA / React Router (Vercel)
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Se seu app usa React Router (SPA), o `vercel.json` acima é necessário para evitar 404 ao atualizar páginas internas.
