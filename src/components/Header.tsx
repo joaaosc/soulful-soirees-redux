@@ -11,7 +11,7 @@ const Header = () => {
           <Link to="/home" className="flex items-center gap-2">
             <Sparkles className="h-6 w-6 text-secondary" />
             <span className="font-serif text-xl font-semibold text-foreground">
-              Soulful
+              Rio Heal
             </span>
           </Link>
 

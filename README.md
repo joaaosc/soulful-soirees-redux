@@ -1,4 +1,4 @@
-# Soulful Soirées (Redux)
+# Rio Heal
 
 App web (Vite + React + TypeScript + Tailwind + shadcn/ui) para descobrir eventos e experiências de bem-estar no RJ.
 
@@ -14,8 +14,8 @@ App web (Vite + React + TypeScript + Tailwind + shadcn/ui) para descobrir evento
 Clone o repositório e instale dependências:
 
 ```bash
-git clone https://github.com/joaaosc/soulful-soirees-redux.git
-cd soulful-soirees-redux
+git clone https://github.com/joaaosc/rio-heal.git
+cd rio-heal
 npm ci
 ```
 

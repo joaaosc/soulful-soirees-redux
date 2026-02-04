@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="flex items-center gap-2">
               <Sparkles className="h-6 w-6 text-primary" />
               <span className="font-serif text-xl font-semibold text-white">
-                Soulful
+                Rio Heal
               </span>
             </div>
             <p className="text-sm leading-relaxed">
@@ -56,7 +56,7 @@ const Footer = () => {
           <div>
             <h4 className="font-serif text-white font-semibold mb-4">Contato</h4>
             <ul className="space-y-3 text-sm">
-              <li>contato@soulful.com.br</li>
+              <li>contato@rioheal.com.br</li>
               <li>(21) 99999-9999</li>
               <li>Rio de Janeiro, RJ</li>
             </ul>
@@ -64,7 +64,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm">
-          <p>© 2026 Soulful. Todos os direitos reservados.</p>
+          <p>© 2026 Rio Heal. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

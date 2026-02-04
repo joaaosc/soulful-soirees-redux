@@ -95,7 +95,7 @@ const AppleLanding = () => {
           <div className="flex items-center justify-between h-12">
             <div className="flex items-center gap-2">
               <Sparkles className="h-5 w-5 text-primary" />
-              <span className="font-serif text-lg font-semibold text-foreground">Soulful</span>
+              <span className="font-serif text-lg font-semibold text-foreground">Rio Heal</span>
             </div>
 
             <nav className="hidden md:flex items-center gap-8 text-xs text-foreground/70">
@@ -126,7 +126,7 @@ const AppleLanding = () => {
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto text-white">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-semibold mb-6 tracking-tight animate-fade-in">
-            Soulful
+            Rio Heal
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-10 font-light animate-fade-in-up">
             Transforme sua jornada espiritual.
@@ -189,7 +189,7 @@ const AppleLanding = () => {
               <div className="aspect-[16/9] overflow-hidden rounded-3xl">
                 <img
                   src={meditationImg}
-                  alt="Experiências Soulful"
+                  alt="Experiências Rio Heal"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.01]"
                   loading="lazy"
                 />
@@ -418,7 +418,7 @@ const AppleLanding = () => {
       <footer className="py-10 bg-background border-t border-black/10">
         <div className="mx-auto max-w-6xl px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-foreground/60">
-            <p>© 2026 Soulful. Todos os direitos reservados.</p>
+            <p>© 2026 Rio Heal. Todos os direitos reservados.</p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-foreground transition-colors">
                 Privacidade
