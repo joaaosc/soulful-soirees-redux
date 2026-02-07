@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Sparkles } from "lucide-react";
+import logoRioHeal from "@/assets/logo-rio-heal.png";
 
 const Header = () => {
   return (
@@ -9,10 +8,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/home" className="flex items-center gap-2">
-            <Sparkles className="h-6 w-6 text-secondary" />
-            <span className="font-serif text-xl font-semibold text-foreground">
-              Rio Heal
-            </span>
+            <img src={logoRioHeal} alt="Rio Heal" className="h-10 w-auto" />
           </Link>
 
           {/* Navigation */}

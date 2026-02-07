@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Sparkles, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-rio.jpg";
+import logoRioHeal from "@/assets/logo-rio-heal.png";
 import meditationImg from "@/assets/event-meditation.jpg";
 import yogaImg from "@/assets/event-yoga.jpg";
 import healingImg from "@/assets/event-healing.jpg";
@@ -94,8 +95,7 @@ const AppleLanding = () => {
         <div className="mx-auto max-w-6xl px-6">
           <div className="flex items-center justify-between h-12">
             <div className="flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-primary" />
-              <span className="font-serif text-lg font-semibold text-foreground">Rio Heal</span>
+              <img src={logoRioHeal} alt="Rio Heal" className="h-8 w-auto" />
             </div>
 
             <nav className="hidden md:flex items-center gap-8 text-xs text-foreground/70">
@@ -389,7 +389,7 @@ const AppleLanding = () => {
 
             {/* CTA Below Slideshow */}
             <div className="text-center py-14">
-              <Sparkles className="h-10 w-10 text-primary mx-auto mb-6 animate-fade-in" />
+              <img src={logoRioHeal} alt="Rio Heal" className="h-14 w-auto mx-auto mb-6 animate-fade-in" />
               <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-4 tracking-tight animate-fade-in-up">
                 Comece sua jornada.
               </h2>

@@ -1,4 +1,5 @@
-import { Sparkles, Instagram, Facebook, Youtube } from "lucide-react";
+import { Instagram, Facebook, Youtube } from "lucide-react";
+import logoRioHeal from "@/assets/logo-rio-heal.png";
 
 const Footer = () => {
   return (
@@ -8,10 +9,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <Sparkles className="h-6 w-6 text-primary" />
-              <span className="font-serif text-xl font-semibold text-white">
-                Rio Heal
-              </span>
+              <img src={logoRioHeal} alt="Rio Heal" className="h-12 w-auto brightness-0 invert" />
             </div>
             <p className="text-sm leading-relaxed">
               Conectando pessoas a experiências transformadoras de 
