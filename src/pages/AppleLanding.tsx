@@ -89,7 +89,7 @@ const AppleLanding = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Apple-like Header (no auth buttons) */}
+      {/* Swiss-style Header — minimal, functional */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-black/10">
         <div className="mx-auto max-w-6xl px-6">
           <div className="flex items-center justify-between h-12">
