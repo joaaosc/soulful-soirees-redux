@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { CalendarDays, MapPin, Users } from "lucide-react";
 
-interface EventCardProps {
+export interface EventCardProps {
   image: string;
   category: string;
   title: string;
@@ -9,6 +9,10 @@ interface EventCardProps {
   location: string;
   spotsLeft: number;
   price: number;
+  description?: string;
+  duration?: string;
+  instagram?: string;
+  onClick?: () => void;
 }
 
 const EventCard = ({
@@ -19,9 +23,13 @@ const EventCard = ({
   location,
   spotsLeft,
   price,
+  onClick,
 }: EventCardProps) => {
   return (
-    <div className="event-card group">
+    <div 
+      className="event-card group cursor-pointer"
+      onClick={onClick}
+    >
       {/* Image */}
       <div className="relative h-48 overflow-hidden">
         <img
@@ -64,8 +72,15 @@ const EventCard = ({
               R$ {price.toLocaleString("pt-BR")}
             </p>
           </div>
-          <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            Inscrever-se
+          <Button 
+            size="sm" 
+            className="bg-primary hover:bg-primary/90 text-primary-foreground"
+            onClick={(e) => {
+              e.stopPropagation();
+              onClick?.();
+            }}
+          >
+            Ver Detalhes
           </Button>
         </div>
       </div>
