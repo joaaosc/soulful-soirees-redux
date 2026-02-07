@@ -3,12 +3,12 @@ import logoRioHeal from "@/assets/logo-rio-heal.png";
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-black/10">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link to="/home" className="flex items-center gap-2">
-            <img src={logoRioHeal} alt="Rio Heal" className="h-10 w-auto" />
+          <Link to="/" className="flex items-center gap-2">
+            <img src={logoRioHeal} alt="Rio Heal" className="h-12 w-auto" />
           </Link>
 
           {/* Navigation */}

@@ -91,12 +91,12 @@ const AppleLanding = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Swiss-style Header — minimal, functional */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-black/10">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-black/10">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="flex items-center justify-between h-12">
-            <div className="flex items-center gap-2">
-              <img src={logoRioHeal} alt="Rio Heal" className="h-8 w-auto" />
-            </div>
+          <div className="flex items-center justify-between h-14">
+            <Link to="/" className="flex items-center gap-2">
+              <img src={logoRioHeal} alt="Rio Heal" className="h-12 w-auto" />
+            </Link>
 
             <nav className="hidden md:flex items-center gap-8 text-xs text-foreground/70">
               <button onClick={() => scrollToSection("plataforma")} className="hover:text-foreground transition-colors">
